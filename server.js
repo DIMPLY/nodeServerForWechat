@@ -1,5 +1,5 @@
 var express = require('express');
-var lessMiddleware = require('less-middleware');
+//var lessMiddleware = require('less-middleware');
 var sha1 = require('sha1');
 //var bodyParser = require('body-parser');
 var app = express();
@@ -8,7 +8,7 @@ var app = express();
 //var jsonParser = bodyParser.json();
 //var urlencodedParser = bodyParser.urlencoded({extended:false});
 
-app.use(lessMiddleware(__dirname));
+//app.use(lessMiddleware(__dirname));
 app.use(express.static(__dirname));
 
 app.get('/test',function(req,res){
