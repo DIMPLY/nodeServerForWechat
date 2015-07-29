@@ -16,8 +16,9 @@ app.get('/test',function(req,res){
     var temparr = [req.query.timestamp, req.query.nonce, 'reading_yan'];
     var sigStr = temparr.sort().join('');
     console.log(sigStr);
-    //if(sha1(sigStr)===req.query.signature)
+    if(sha1(sigStr)===req.query.signature)
     res.send(req.query.echostr);
+    else res.send('wrong');
 });
 
 app.listen(80,function(){
