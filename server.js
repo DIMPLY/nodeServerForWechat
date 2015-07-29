@@ -14,8 +14,10 @@ app.use(express.static(__dirname));
 app.get('/test',function(req,res){
     if(!req.query)return res.sendStatus(400);
     var temparr = [req.query.timestamp, req.query.nonce, 'reading_yan'];
-    var sigStr = temparr.sort().join();
-    if(sha1(sigStr)===req.query.signature)res.send(req.query.echostr);
+    var sigStr = temparr.sort().join('');
+    if(sha1(sigStr)===req.query.signature)
+    res.send(req.query.echostr);
+    else res.sendStatus(400);
 });
 
 app.listen(80,function(){
